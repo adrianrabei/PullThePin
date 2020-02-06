@@ -4,34 +4,31 @@ using UnityEngine;
 
 public class PinControll : MonoBehaviour
 {
-    private Rigidbody pin;
-    private float speed = 25000f;
-    private Collider coll;
-    private float timeLeft = 1.3f;
-    private bool destruction;
+    private GameObject pin;
+    private Transform startPosx;
+    private Transform finishPosx;
+    [SerializeField] private GameObject start;
+
+    [SerializeField] private GameObject finish;
+    private float t;
+    private bool clicked;
     void Start()
     {
-        pin = GetComponent<Rigidbody>();
-        coll = GetComponent<Collider>();
-        destruction = false;
+        startPosx = start.transform;
+        finishPosx = finish.transform;
+        t = 0.05f;
     }
 
     void FixedUpdate()
     {
-       if(destruction){
-            timeLeft -= Time.deltaTime;
-            if(timeLeft < 1)
-            {
-                Destroy(this.gameObject);
-            }
+        if(clicked)
+        {
+            transform.position = Vector3.Lerp(startPosx.position, finishPosx.position, t);
+            t += 0.05f;
         }
     }
 
     private void OnMouseDown() {
-        pin.AddForce(transform.right * speed);
-        coll.enabled = false;
-        destruction = true;
-    }
-
-    
+        clicked = true;
+    }    
 }
