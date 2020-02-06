@@ -68,4 +68,12 @@ public class ColorChanger : MonoBehaviour
             
         }
     }
+
+    private void OnCollisionStay(Collision other) {
+        if(other.gameObject.tag == "Colored" && gameObject.tag != "Colored") {
+            ColorPicker();
+            transform.gameObject.tag = "Colored";
+            
+        }
+    }
 }
