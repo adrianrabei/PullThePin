@@ -60,10 +60,16 @@ public class ColorChanger : MonoBehaviour
         }
     }
 
+    private IEnumerator ChangeColor()
+    {
+        yield return new WaitForSeconds(0.16f);
+        ColorPicker();
+    }
+
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Colored" && gameObject.tag != "Colored") {
-            ColorPicker();
+            StartCoroutine(ChangeColor());
             transform.gameObject.tag = "Colored";
             
         }
@@ -71,7 +77,7 @@ public class ColorChanger : MonoBehaviour
 
     private void OnCollisionStay(Collision other) {
         if(other.gameObject.tag == "Colored" && gameObject.tag != "Colored") {
-            ColorPicker();
+            StartCoroutine(ChangeColor());
             transform.gameObject.tag = "Colored";
             
         }
