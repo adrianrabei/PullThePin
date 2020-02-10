@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4899694800956970089}
   - component: {fileID: 4899694800956970090}
   - component: {fileID: 4899694800956970091}
+  - component: {fileID: -4905349091879321174}
   m_Layer: 0
   m_Name: smallPink
   m_TagString: Colored
@@ -56,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -109,3 +111,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 88
   m_CollisionDetection: 2
+--- !u!114 &-4905349091879321174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4899694800956970069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1103dd618e660604eacbe81c6987d677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

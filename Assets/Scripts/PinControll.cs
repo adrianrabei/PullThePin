@@ -12,11 +12,12 @@ public class PinControll : MonoBehaviour
     [SerializeField] private GameObject finish;
     private float t;
     private bool clicked;
+
     void Start()
     {
         startPosx = start.transform;
         finishPosx = finish.transform;
-        t = 0.05f;
+        t = 0.01f;
     }
 
     void FixedUpdate()

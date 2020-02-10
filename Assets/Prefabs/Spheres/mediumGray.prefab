@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1954081668903240966}
   - component: {fileID: 1954081668903240967}
   - component: {fileID: -5100828026639771630}
+  - component: {fileID: -3600629119615176456}
   m_Layer: 0
   m_Name: mediumGray
   m_TagString: Grey
@@ -57,6 +58,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -129,3 +131,15 @@ MonoBehaviour:
   matPurple: {fileID: 2100000, guid: 125e8f44c869b1c479bc0a2e58885cde, type: 2}
   matPink: {fileID: 2100000, guid: a209882734a02574ab6aec6ac4c7e786, type: 2}
   matYellow: {fileID: 2100000, guid: 71bbad76952170c47bbfdfa0c1f50802, type: 2}
+--- !u!114 &-3600629119615176456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954081668903241017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1103dd618e660604eacbe81c6987d677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
