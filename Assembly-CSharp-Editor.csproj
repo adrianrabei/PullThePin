@@ -45,7 +45,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\EffectExamples\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Editor\ClearUnusedAttributes.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Editor\CreateShadowObject.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Editor\CustomAction.cs" />
@@ -96,7 +95,6 @@
      <Compile Include="Assets\ProCore\ProBuilder\Editor\pb_MissingScriptEditor.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\Editor\pb_Preferences.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\Editor\pb_ScenePostProcessor.cs" />
-     <None Include="Assets\EffectExamples\Editor\PackageManagerAssembly\PackageImportList.txt" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -315,9 +313,6 @@
  </Reference>
  <Reference Include="ProBuilderEditor-Unity5">
  <HintPath>D:/Unity Projects/Pull the Pin/Assets/ProCore/ProBuilder/Editor/ProBuilderEditor-Unity5.dll</HintPath>
- </Reference>
- <Reference Include="PackageManagerAssembly">
- <HintPath>D:/Unity Projects/Pull the Pin/Assets/EffectExamples/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>D:/Unity Projects/Pull the Pin/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>

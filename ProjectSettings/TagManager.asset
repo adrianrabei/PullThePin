@@ -11,6 +11,7 @@ TagManager:
   - Colored
   - Bomb
   - BlowOut
+  - Pipe
   layers:
   - Default
   - TransparentFX

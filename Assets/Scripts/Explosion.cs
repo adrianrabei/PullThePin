@@ -47,7 +47,7 @@ public class Explosion : MonoBehaviour
                     rb.AddExplosionForce(power, explosionPosition, radius, upForce, ForceMode.Impulse);
                 }
             }
-            Instantiate(explosioneffects, explosionPosition, transform.rotation);
+            Instantiate(explosioneffects, explosionPosition, Quaternion.identity);
             Destroy(gameObject);
             bomb.SetActive(false);
     }

@@ -45,14 +45,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
-     <Compile Include="Assets\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
-     <Compile Include="Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
-     <Compile Include="Assets\EffectExamples\Shared\Scripts\GunShoot.cs" />
-     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
-     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
-     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
-     <Compile Include="Assets\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
@@ -62,6 +54,7 @@
      <Compile Include="Assets\Scripts\ColorChanger.cs" />
      <Compile Include="Assets\Scripts\ConstraintsController.cs" />
      <Compile Include="Assets\Scripts\Explosion.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\PinControll.cs" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_ScrollHighlight.shader" />
      <None Include="Assets\ProCore\ProBuilder\readme.txt" />
@@ -84,7 +77,6 @@
      <None Include="Assets\ProCore\ProBuilder\About\changelog.txt" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_SelectionPicker.shader" />
-     <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\DiffuseVertexColor.shader" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

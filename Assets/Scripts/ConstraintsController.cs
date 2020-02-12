@@ -39,6 +39,11 @@ public class ConstraintsController : MonoBehaviour
                 obj.isKinematic = false;
             }
         }
+        if(other.gameObject.tag == "Pipe")
+        {
+            Unfreez();
+            Invoke("Freez", 2f);
+        }
     }
 
     private void OnCollisionStay(Collision other) {
@@ -52,10 +57,20 @@ public class ConstraintsController : MonoBehaviour
              transform.gameObject.tag = "BlowOut";
              isBlowing = true;
         }
+        if(other.gameObject.tag == "Pipe")
+        {
+            Unfreez();
+            Invoke("Freez", 2f);
+        }
     }
 
     private void Unfreez()
     {
         obj.constraints = RigidbodyConstraints.None;
+    }
+
+    private void Freez()
+    {
+        obj.constraints = RigidbodyConstraints.FreezeAll;
     }
 }

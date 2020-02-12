@@ -17,7 +17,7 @@ public class PinControll : MonoBehaviour
     {
         startPosx = start.transform;
         finishPosx = finish.transform;
-        t = 0.01f;
+        t = 0.001f;
     }
 
     void FixedUpdate()
@@ -25,7 +25,7 @@ public class PinControll : MonoBehaviour
         if(clicked)
         {
             transform.position = Vector3.Lerp(startPosx.position, finishPosx.position, t);
-            t += 0.05f;
+            t += 0.005f;
         }
     }
 
