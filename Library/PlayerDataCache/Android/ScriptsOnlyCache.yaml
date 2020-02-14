@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - Explosion
     - GameManager
     - PinControll
+    - PipeControll
     ProBuilderCore-Unity5.dll:
     - ProBuilder2.Common.pb_PreferenceDictionary
     - pb_Entity
@@ -65,29 +66,31 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11500}
+      Script: {instanceID: 11502}
     - Class: 114
-      Script: {instanceID: 11710}
+      Script: {instanceID: 11712}
     - Class: 114
-      Script: {instanceID: 11728}
+      Script: {instanceID: 11730}
     - Class: 114
-      Script: {instanceID: 11744}
+      Script: {instanceID: 11746}
     - Class: 114
-      Script: {instanceID: 11786}
+      Script: {instanceID: 11788}
     - Class: 114
-      Script: {instanceID: 11846}
+      Script: {instanceID: 11848}
     - Class: 114
-      Script: {instanceID: 12246}
+      Script: {instanceID: 12248}
     - Class: 114
-      Script: {instanceID: 12692}
+      Script: {instanceID: 12694}
     - Class: 114
-      Script: {instanceID: 13270}
+      Script: {instanceID: 13272}
     - Class: 114
-      Script: {instanceID: 13344}
+      Script: {instanceID: 13346}
     - Class: 114
-      Script: {instanceID: 13374}
+      Script: {instanceID: 13376}
     - Class: 114
-      Script: {instanceID: 13670}
+      Script: {instanceID: 13672}
+    - Class: 114
+      Script: {instanceID: 46382}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -151,7 +154,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 77e5cf1b9e2718839aee6c6184041e91
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ConstraintsController
@@ -541,7 +544,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: d9f15db521f5422d9c957f5b2eb6e9c5
+      Hash: 6115aa942547767788f6b41252b45e00
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Explosion
@@ -665,6 +668,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 29132f42cb341c36d7a7c5a685941887
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PipeControll
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

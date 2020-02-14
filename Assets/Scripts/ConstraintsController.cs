@@ -6,6 +6,8 @@ public class ConstraintsController : MonoBehaviour
 {
     private Rigidbody obj;
     private bool isBlowing;
+    [SerializeField] private GameObject fail;
+
     void Start()
     {
         obj = GetComponent<Rigidbody>();
@@ -17,6 +19,7 @@ public class ConstraintsController : MonoBehaviour
         if(isBlowing)
         {
             Invoke("Unfreez", 0.4f);
+            Invoke("Fail", 1.2f);
         }
     }
 
@@ -72,5 +75,11 @@ public class ConstraintsController : MonoBehaviour
     private void Freez()
     {
         obj.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    private void Fail()
+    {
+        fail.SetActive(true);
+        Time.timeScale = 0;
     }
 }

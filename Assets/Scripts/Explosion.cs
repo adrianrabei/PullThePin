@@ -13,6 +13,8 @@ public class Explosion : MonoBehaviour
     private bool isDetonating;
     private bool canExplode;
     private bool gameOver;
+    public GameObject otherBomb;
+    private float t;
     [SerializeField] private GameObject explosioneffects;
     
     void Start()
@@ -21,15 +23,16 @@ public class Explosion : MonoBehaviour
         radius = 10;
         upForce = 1;
         isDetonating = false;
-        canExplode = true;
+        canExplode = false;
         gameOver = false;
+        t = 0.5f;
     }
 
     void FixedUpdate()
     {
         if(isDetonating)
         {
-            Invoke("Detonating", 0.5f);
+            Invoke("Detonating", t);
         }
     }
 
@@ -56,11 +59,15 @@ public class Explosion : MonoBehaviour
        if(other.gameObject.tag == "BlowOut")
        {
             isDetonating = true;
+            otherBomb.GetComponent<Explosion>().isDetonating = true;
+            otherBomb.GetComponent<Explosion>().t += 1.15f;
             gameOver = true;
        }
        if(other.gameObject.tag == "Bomb")
        {
             isDetonating = true;
+            otherBomb.GetComponent<Explosion>().isDetonating = true;
+            otherBomb.GetComponent<Explosion>().t += 1.15f;
        }
    }
 }
