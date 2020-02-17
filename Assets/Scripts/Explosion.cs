@@ -56,14 +56,14 @@ public class Explosion : MonoBehaviour
     }
    
    private void OnCollisionEnter(Collision other) {
-       if(other.gameObject.tag == "BlowOut")
+       if(other.gameObject.tag == "BlowOut" || other.gameObject.tag == "Pipe")
        {
             isDetonating = true;
             otherBomb.GetComponent<Explosion>().isDetonating = true;
             otherBomb.GetComponent<Explosion>().t += 1.15f;
             gameOver = true;
        }
-       if(other.gameObject.tag == "Bomb")
+       else if(other.gameObject.tag == "Bomb")
        {
             isDetonating = true;
             otherBomb.GetComponent<Explosion>().isDetonating = true;

@@ -12,6 +12,7 @@ TagManager:
   - Bomb
   - BlowOut
   - Pipe
+  - Counted
   layers:
   - Default
   - TransparentFX

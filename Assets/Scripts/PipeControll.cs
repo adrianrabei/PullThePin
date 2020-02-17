@@ -3,29 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PipeControll : MonoBehaviour
+public class PipeControll : GameManager
 {
+    private Rigidbody pipe;
     private GameObject[] total;
     private int count;
     private bool result;
     private int percentage;
-    [SerializeField] private GameObject win;
-    [SerializeField] private GameObject fail;
     [SerializeField] private Text text;
+    private int inPipe;
+    private bool isAll;
     void Start()
     {
-        total = GameObject.FindGameObjectsWithTag("Colored");
+        pipe = GetComponent<Rigidbody>();
         count = 0;
         result = false;
         percentage = 0;
+        inPipe = 0;
+        isAll = false;
     }
 
     void FixedUpdate()
     {
         SphereCounter();
+        Debug.Log("Total colored:" + total.Length);
+        Debug.Log("Now in pipe:" + inPipe);
         if(result)
         {
-            Invoke("Result", 1);
+            Invoke("Result", 2);
         }
     }
 
@@ -46,19 +51,33 @@ public class PipeControll : MonoBehaviour
             count++;
             percentage = (count * 100) / total.Length;
             text.text = percentage + "%";
+            inPipe++;
             result = true;
+        }
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if(other.gameObject.tag == "Bomb")
+        {
+            pipe.constraints = RigidbodyConstraints.None;
+            Invoke("Fail", 1);
         }
     }
 
     private void Result()
     {
-        if(count < total.Length)
+        if(inPipe == total.Length)
         {
-            fail.SetActive(true);
-            Time.timeScale = 0;
+            if(count < total.Length)
+            {
+                Invoke("Fail", 1);
+            }
+            else 
+            {
+                Invoke("Win", 1);
+                
+            }
         }
-        else win.SetActive(true);
-        Time.timeScale = 0;
     }
 
 }

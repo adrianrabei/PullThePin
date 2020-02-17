@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject main;
-    [SerializeField] private GameObject game;
-    [SerializeField] private GameObject win;
-    [SerializeField] private GameObject fail;
+    [SerializeField] protected GameObject game;
+    [SerializeField] protected GameObject win;
+    [SerializeField] protected GameObject fail;
+
     
     void Start()
     {
@@ -26,5 +27,17 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
+    }
+
+    public void Fail()
+    {
+        fail.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void Win()
+    {
+        win.SetActive(true);
+        Time.timeScale = 0;
     }
 }

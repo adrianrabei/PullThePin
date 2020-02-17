@@ -143,4 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1103dd618e660604eacbe81c6987d677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
+  main: {fileID: 0}
+  game: {fileID: 0}
+  win: {fileID: 0}
+  fail: {fileID: 0}
+  greyParticles: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}

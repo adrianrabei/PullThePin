@@ -26,10 +26,16 @@ public class PinControll : MonoBehaviour
         {
             transform.position = Vector3.Lerp(startPosx.position, finishPosx.position, t);
             t += 0.005f;
+            Invoke("PinDestroy", 0.2f);
         }
     }
 
     private void OnMouseDown() {
         clicked = true;
-    }    
+    } 
+
+    private void PinDestroy()
+    {
+        Destroy(gameObject);
+    }   
 }

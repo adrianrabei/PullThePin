@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConstraintsController : MonoBehaviour
+public class ConstraintsController : GameManager
 {
     private Rigidbody obj;
     private bool isBlowing;
-    [SerializeField] private GameObject fail;
+    
 
     void Start()
     {
@@ -75,11 +75,5 @@ public class ConstraintsController : MonoBehaviour
     private void Freez()
     {
         obj.constraints = RigidbodyConstraints.FreezeAll;
-    }
-
-    private void Fail()
-    {
-        fail.SetActive(true);
-        Time.timeScale = 0;
     }
 }
