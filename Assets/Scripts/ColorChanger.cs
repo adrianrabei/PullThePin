@@ -68,7 +68,7 @@ public class ColorChanger : MonoBehaviour
 
 
     private void OnCollisionEnter(Collision other) {
-        if(other.gameObject.tag == "Colored" && gameObject.tag != "Colored") {
+        if(other.gameObject.tag == "Colored" && gameObject.tag == "Grey") {
             StartCoroutine(ChangeColor());
             transform.gameObject.tag = "Colored";
             
@@ -76,7 +76,7 @@ public class ColorChanger : MonoBehaviour
     }
 
     private void OnCollisionStay(Collision other) {
-        if(other.gameObject.tag == "Colored" && gameObject.tag != "Colored") {
+        if(other.gameObject.tag == "Colored" && gameObject.tag == "Grey") {
             StartCoroutine(ChangeColor());
             transform.gameObject.tag = "Colored";
             

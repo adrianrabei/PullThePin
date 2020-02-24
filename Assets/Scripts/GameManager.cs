@@ -9,29 +9,35 @@ public class GameManager : MonoBehaviour
     [SerializeField] protected GameObject game;
     [SerializeField] protected GameObject win;
     [SerializeField] protected GameObject fail;
-
-    
+    [SerializeField] private Vector3 targetPosition;
+    private float moveDuration = 0.1f;
     void Start()
     {
-        Time.timeScale = 0;
+        
     }
 
     public void Play()
     {
-        main.SetActive(false);
         game.SetActive(true);
         Time.timeScale = 1;
     }
 
+    public void Pause()
+    {
+        game.SetActive(false);
+    }
+
     public void Restart()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
     }
 
     public void Fail()
     {
         fail.SetActive(true);
+        game.SetActive(false);
+        main.SetActive(true);
         Time.timeScale = 0;
     }
 
@@ -39,5 +45,11 @@ public class GameManager : MonoBehaviour
     {
         win.SetActive(true);
         Time.timeScale = 0;
+        Invoke("NextScene", 1);
+    }
+
+    public void NextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

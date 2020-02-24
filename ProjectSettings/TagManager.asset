@@ -13,6 +13,7 @@ TagManager:
   - BlowOut
   - Pipe
   - Counted
+  - inPipe
   layers:
   - Default
   - TransparentFX

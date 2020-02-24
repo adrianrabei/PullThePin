@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class PipeControll : GameManager
 {
     private Rigidbody pipe;
-    private GameObject[] total;
-    private int count;
-    private bool result;
-    private int percentage;
-    [SerializeField] private Text text;
-    private int inPipe;
-    private bool isAll;
+    public GameObject[] total;
+    public int count;
+    public bool result;
+    public int percentage;
+    [SerializeField] public Text text;
+    public int inPipe;
+    public int totalSpheres;
     void Start()
     {
         pipe = GetComponent<Rigidbody>();
@@ -20,39 +20,45 @@ public class PipeControll : GameManager
         result = false;
         percentage = 0;
         inPipe = 0;
-        isAll = false;
+        totalSpheres = ColoredCounter() + GreyCounter();
+
     }
 
     void FixedUpdate()
     {
-        SphereCounter();
-        Debug.Log("Total colored:" + total.Length);
-        Debug.Log("Now in pipe:" + inPipe);
+        inPipe = InPipeCounter();
+
         if(result)
         {
-            Invoke("Result", 2);
+            Invoke("Result", 1);
         }
     }
 
-    private void SphereCounter()
+    
+
+    private int ColoredCounter()
     {
         total = GameObject.FindGameObjectsWithTag("Colored");
-       
+        return total.Length;
+    }
+
+    private int InPipeCounter()
+    {
+        total = GameObject.FindGameObjectsWithTag("inPipe");
+        return total.Length;
+    }
+
+    private int GreyCounter()
+    {
+        total = GameObject.FindGameObjectsWithTag("Grey");
+        return total.Length;
     }
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Grey")
         {
             Destroy(other.gameObject);
-            result = true;
-        }
-        if(other.gameObject.tag == "Colored")
-        {
-            count++;
-            percentage = (count * 100) / total.Length;
-            text.text = percentage + "%";
-            inPipe++;
-            result = true;
+            Invoke("Fail", 2);
         }
     }
 
@@ -66,16 +72,16 @@ public class PipeControll : GameManager
 
     private void Result()
     {
-        if(inPipe == total.Length)
+        if(totalSpheres == inPipe)
         {
-            if(count < total.Length)
+            if(count < totalSpheres)
             {
-                Invoke("Fail", 1);
+                Invoke("Fail", 0.5f);
             }
             else 
             {
-                Invoke("Win", 1);
-                
+                Invoke("Win", 0.5f);
+                NextScene();
             }
         }
     }
