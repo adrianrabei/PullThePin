@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpheresController : GameManager
+public class SpheresController : MonoBehaviour
 {
     private Rigidbody obj;
     private bool isBlowing;
-    [SerializeField] private GameObject pipe;
-    
-    //public static int c;
+    [SerializeField] private PipeControll pipe;
     void Start()
     {
         obj = GetComponent<Rigidbody>();
@@ -20,13 +18,14 @@ public class SpheresController : GameManager
         if(isBlowing)
         {
             Invoke("Unfreez", 0.4f);
-            Invoke("Fail", 1.2f);
+            GameManager.Instance.Fail();
         }
     }
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Bomb")
         {
+            print("Ebobo");
             transform.gameObject.tag = "BlowOut";
             isBlowing = true;
             if(obj.isKinematic)
@@ -64,8 +63,8 @@ public class SpheresController : GameManager
         }
         if((other.gameObject.tag == "inPipe" || other.gameObject.tag == "Pipe") && gameObject.tag == "Colored")
         {
-           InPipeCounting();
            Unfreez();
+           InPipeCounting();
         }
     }
 
@@ -82,9 +81,9 @@ public class SpheresController : GameManager
     public void InPipeCounting()
     {
         transform.gameObject.tag = "inPipe";
-        pipe.GetComponent<PipeControll>().count++;
-        pipe.GetComponent<PipeControll>().percentage = (pipe.GetComponent<PipeControll>().count * 100) / pipe.GetComponent<PipeControll>().totalSpheres;
-        pipe.GetComponent<PipeControll>().text.text = pipe.GetComponent<PipeControll>().percentage + "%";
-        pipe.GetComponent<PipeControll>().result = true;
+        pipe.count++;
+        pipe.percentage = (pipe.count * 100) / pipe.totalSpheres;
+        pipe.text.text = pipe.percentage + "%";
+        pipe.result = true;
     }
 }
