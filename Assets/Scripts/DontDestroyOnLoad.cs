@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DontDestroyOnLoad : MonoBehaviour
+public class DontDestroyOnLoad : UIManager
 {
-   public  bool wasPlayed;
-    public  bool WasPlayed {
+    public static bool wasPlayed = false;
+    public static bool WasPlayed {
         get {return wasPlayed;}
         set {wasPlayed = value;}
     }

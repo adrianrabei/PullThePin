@@ -296,12 +296,6 @@
  <Reference Include="UnityEditor.iOS.Extensions">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="DOTween">
- <HintPath>D:/Unity Projects/Pull the Pin/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
- </Reference>
- <Reference Include="DOTweenEditor">
- <HintPath>D:/Unity Projects/Pull the Pin/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
- </Reference>
  <Reference Include="ProBuilderCore-Unity5">
  <HintPath>D:/Unity Projects/Pull the Pin/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
  </Reference>
@@ -319,6 +313,15 @@
  </Reference>
  <Reference Include="ProBuilderEditor-Unity5">
  <HintPath>D:/Unity Projects/Pull the Pin/Assets/ProCore/ProBuilder/Editor/ProBuilderEditor-Unity5.dll</HintPath>
+ </Reference>
+ <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+ <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenEditor">
+ <HintPath>D:/Unity Projects/Pull the Pin/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>D:/Unity Projects/Pull the Pin/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>D:/Unity Projects/Pull the Pin/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>

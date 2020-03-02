@@ -2,35 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject main;
     [SerializeField] protected GameObject game;
     [SerializeField] protected GameObject win;
     [SerializeField] protected GameObject fail;
-    [SerializeField] private Text level;
-    private int sceneIndex;
-    protected override void Awake()
-    {
-        base.Awake();
-       
-    }
+    [SerializeField] private Vector3 targetPosition;
+    private float moveDuration = 0.1f;
     void Start()
     {
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(sceneIndex);
-        level.text = "Level " + (sceneIndex+1); 
-    }
-    void Update() 
-    {
-       
+        
     }
 
     public void Play()
     {
-
         game.SetActive(true);
         Time.timeScale = 1;
     }
@@ -41,27 +28,28 @@ public class GameManager : Singleton<GameManager>
     }
 
     public void Restart()
-    {  
-        SceneManager.LoadScene(sceneIndex);
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
     }
 
-    public IEnumerator Fail()
+    public void Fail()
     {
-        yield return new WaitForSeconds(1f);
         fail.SetActive(true);
-        game.SetActive(false); 
-        print("Boom blea");
+        game.SetActive(false);
+        main.SetActive(true);
+        Time.timeScale = 0;
     }
 
-    public IEnumerator Win()
+    public void Win()
     {
-        yield return new WaitForSeconds(1f);
         win.SetActive(true);
-        game.SetActive(false);
+        Time.timeScale = 0;
+        Invoke("NextScene", 1);
     }
 
     public void NextScene()
     {
-        SceneManager.LoadScene(sceneIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

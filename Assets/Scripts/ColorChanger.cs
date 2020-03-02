@@ -13,7 +13,6 @@ public class ColorChanger : MonoBehaviour
     [SerializeField] private Material matPink;
     [SerializeField] private Material matYellow;
     private Material color;
-    
 
     private int colorNumber;
 
@@ -72,6 +71,7 @@ public class ColorChanger : MonoBehaviour
         if(other.gameObject.tag == "Colored" && gameObject.tag == "Grey") {
             StartCoroutine(ChangeColor());
             transform.gameObject.tag = "Colored";
+            
         }
     }
 
@@ -79,6 +79,7 @@ public class ColorChanger : MonoBehaviour
         if(other.gameObject.tag == "Colored" && gameObject.tag == "Grey") {
             StartCoroutine(ChangeColor());
             transform.gameObject.tag = "Colored";
+            
         }
     }
 }

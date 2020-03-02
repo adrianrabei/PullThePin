@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 5185013260428474883}
   - component: {fileID: 7809161039664197638}
   m_Layer: 0
-  m_Name: Pipe
+  m_Name: Pipe 1
   m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,9 +32,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856002395013209257}
-  m_LocalRotation: {x: 0.03489949, y: 0, z: 0, w: 0.99939084}
+  m_LocalRotation: {x: 0.03489949, y: -0, z: -0, w: 0.99939084}
   m_LocalPosition: {x: -0.7452938, y: -4.09, z: -6.44}
-  m_LocalScale: {x: 0.8, y: 0.79999983, z: 0.79999983}
+  m_LocalScale: {x: 0.8, y: 0.7999999, z: 0.7999999}
   m_Children:
   - {fileID: 856002396469690319}
   - {fileID: 856002396389442126}
@@ -8226,8 +8226,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 0, z: 2.0025039}
-  m_Center: {x: -0.98078525, y: -0.04030919, z: -0.19634168}
+  m_Size: {x: 2, y: 0, z: 2}
+  m_Center: {x: -0.98078525, y: -0.01807303, z: -0.19509026}
 --- !u!64 &856002395013209258
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8254,6 +8254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b100fd3b7f86db478508b473c9b34e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  main: {fileID: 0}
+  game: {fileID: 0}
+  win: {fileID: 0}
+  fail: {fileID: 0}
   total: []
   count: 0
   result: 0
@@ -8272,8 +8276,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 0, z: 2}
-  m_Center: {x: -0.98078525, y: 1.6801114, z: -0.19509026}
+  m_Size: {x: 2.0615313, y: 0, z: 2.0490088}
+  m_Center: {x: -0.9500199, y: 1.6676685, z: -0.18132025}
 --- !u!1 &856002395263050646
 GameObject:
   m_ObjectHideFlags: 0

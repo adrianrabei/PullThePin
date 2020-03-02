@@ -16,7 +16,6 @@ public class Explosion : MonoBehaviour
     public GameObject otherBomb;
     private float t;
     [SerializeField] private GameObject explosioneffects;
-    [SerializeField] private bool secondBombCheck;
     
     void Start()
     {
@@ -64,7 +63,7 @@ public class Explosion : MonoBehaviour
             otherBomb.GetComponent<Explosion>().t += 1.15f;
             gameOver = true;
        }
-       else if(other.gameObject.tag == "Bomb" && secondBombCheck)
+       else if(other.gameObject.tag == "Bomb")
        {
             isDetonating = true;
             otherBomb.GetComponent<Explosion>().isDetonating = true;
