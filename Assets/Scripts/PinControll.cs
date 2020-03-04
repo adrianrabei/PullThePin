@@ -17,7 +17,7 @@ public class PinControll : MonoBehaviour
     {
         startPosx = start.transform;
         finishPosx = finish.transform;
-        t = 0.001f;
+        t = 0.01f;
     }
 
     void FixedUpdate()
@@ -25,13 +25,14 @@ public class PinControll : MonoBehaviour
         if(clicked)
         {
             transform.position = Vector3.Lerp(startPosx.position, finishPosx.position, t);
-            t += 0.005f;
-            Invoke("PinDestroy", 0.2f);
+            t += 0.05f;
+            Invoke("PinDestroy", 1f);
         }
     }
 
     private void OnMouseDown() {
         clicked = true;
+        SoundControll.Instance.PlaySound("swoosh");
     } 
 
     private void PinDestroy()

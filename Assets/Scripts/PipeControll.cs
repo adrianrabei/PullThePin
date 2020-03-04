@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PipeControll : GameManager
+public class PipeControll : MonoBehaviour
 {
     private Rigidbody pipe;
     public GameObject[] total;
@@ -27,14 +27,16 @@ public class PipeControll : GameManager
     void FixedUpdate()
     {
         inPipe = InPipeCounter();
-
-        if(result)
-        {
-            Invoke("Result", 1);
-        }
     }
 
-    
+    void Update() {
+         if(result)
+        {
+            StartCoroutine(Result());
+            
+        }    
+    }
+
 
     private int ColoredCounter()
     {
@@ -58,7 +60,7 @@ public class PipeControll : GameManager
         if(other.gameObject.tag == "Grey")
         {
             Destroy(other.gameObject);
-            Invoke("Fail", 2);
+            StartCoroutine(GameManager.Instance.Fail());
         }
     }
 
@@ -66,24 +68,23 @@ public class PipeControll : GameManager
         if(other.gameObject.tag == "Bomb")
         {
             pipe.constraints = RigidbodyConstraints.None;
-            Invoke("Fail", 1);
+            StartCoroutine(GameManager.Instance.Fail());
         }
     }
 
-    private void Result()
+    private IEnumerator Result()
     {
+        yield return new WaitForSeconds(1);
         if(totalSpheres == inPipe)
         {
             if(count < totalSpheres)
             {
-                Invoke("Fail", 0.5f);
+               StartCoroutine(GameManager.Instance.Fail());
             }
             else 
             {
-                Invoke("Win", 0.5f);
-                NextScene();
+                StartCoroutine(GameManager.Instance.Win());
             }
         }
     }
-
 }

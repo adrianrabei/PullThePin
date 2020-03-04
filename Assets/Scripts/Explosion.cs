@@ -12,7 +12,6 @@ public class Explosion : MonoBehaviour
     private Collider[] colliders;
     private bool isDetonating;
     private bool canExplode;
-    private bool gameOver;
     public GameObject otherBomb;
     private float t;
     [SerializeField] private GameObject explosioneffects;
@@ -24,7 +23,6 @@ public class Explosion : MonoBehaviour
         upForce = 1;
         isDetonating = false;
         canExplode = false;
-        gameOver = false;
         t = 0.5f;
     }
 
@@ -53,6 +51,7 @@ public class Explosion : MonoBehaviour
             Instantiate(explosioneffects, explosionPosition, Quaternion.identity);
             Destroy(gameObject);
             bomb.SetActive(false);
+            SoundControll.Instance.PlaySound("explosion");
     }
    
    private void OnCollisionEnter(Collision other) {
@@ -61,7 +60,6 @@ public class Explosion : MonoBehaviour
             isDetonating = true;
             otherBomb.GetComponent<Explosion>().isDetonating = true;
             otherBomb.GetComponent<Explosion>().t += 1.15f;
-            gameOver = true;
        }
        else if(other.gameObject.tag == "Bomb")
        {

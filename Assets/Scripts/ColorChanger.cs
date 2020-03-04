@@ -13,7 +13,7 @@ public class ColorChanger : MonoBehaviour
     [SerializeField] private Material matPink;
     [SerializeField] private Material matYellow;
     private Material color;
-
+    
     private int colorNumber;
 
     private void Start() {
@@ -62,16 +62,15 @@ public class ColorChanger : MonoBehaviour
 
     private IEnumerator ChangeColor()
     {
-        yield return new WaitForSeconds(0.16f);
+        yield return new WaitForSeconds(0.2f);
         ColorPicker();
+        SoundControll.Instance.PlaySound("pop");
     }
-
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Colored" && gameObject.tag == "Grey") {
             StartCoroutine(ChangeColor());
             transform.gameObject.tag = "Colored";
-            
         }
     }
 
@@ -79,7 +78,6 @@ public class ColorChanger : MonoBehaviour
         if(other.gameObject.tag == "Colored" && gameObject.tag == "Grey") {
             StartCoroutine(ChangeColor());
             transform.gameObject.tag = "Colored";
-            
         }
     }
 }

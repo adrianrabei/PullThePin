@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallTrigger : GameManager
+public class FallTrigger : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Colored" || other.gameObject.tag == "Grey")
         {
-            Invoke("Fail", 1);
+           StartCoroutine(GameManager.Instance.Fail());
         }
     }
 }
