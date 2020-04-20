@@ -67,8 +67,10 @@ public class PipeControll : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Bomb")
         {
-            pipe.constraints = RigidbodyConstraints.None;
-            StartCoroutine(GameManager.Instance.Fail());
+            if(GameManager.Instance.canFail)
+            {
+                StartCoroutine(GameManager.Instance.Fail());
+            }
         }
     }
 

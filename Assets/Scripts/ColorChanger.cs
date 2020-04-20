@@ -64,13 +64,14 @@ public class ColorChanger : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         ColorPicker();
-        SoundControll.Instance.PlaySound("pop");
     }
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Colored" && gameObject.tag == "Grey") {
             StartCoroutine(ChangeColor());
             transform.gameObject.tag = "Colored";
+            SoundControll.Instance.PlaySound("pop");
+            GameManager.Instance.VibrationController();
         }
     }
 

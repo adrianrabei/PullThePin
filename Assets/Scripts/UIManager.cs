@@ -8,20 +8,16 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private RectTransform main, game, settings, sound, vibration, soundToggle, vibrationToggle;
     [SerializeField] private GameObject soundT, vibrationT;
-    private bool isOn;
     [SerializeField] private Sprite toggleOn, toggleOff;
 
     void Awake()
     {
-        /*if(PlayerPrefs.GetInt("wasPlayed",0)==1)
-        {
-            PlayerPrefs.SetInt("wasPlayed",0);
-            PlayButton();
-
-        }*/
+        SoundToggle(soundT, PlayerPrefs.GetInt("music", 1));
+        VibrationToggle(vibrationT, PlayerPrefs.GetInt("vibration", 1));
         
-        isOn = true;
     }
+
+    
 
     public void PlayButton()
     {
@@ -38,7 +34,6 @@ public class UIManager : MonoBehaviour
 
     public void RestartButton()
     {
-        //PlayerPrefs.SetInt("wasPlayed", 1);
         GameManager.Instance.Restart();
     }
 
@@ -63,35 +58,61 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.NextScene();
     }
 
-    public void SoundToggle()
+    public void SoundSettings()
     {
-        if(isOn)
+        if(PlayerPrefs.GetInt("music", 1) == 1)
         {
+            PlayerPrefs.SetInt("music", 0);
             soundToggle.DOAnchorPos(new Vector2(-120, 0), 0.2f);
-            soundT.GetComponent<Image>().sprite = toggleOff;
-            isOn = !isOn;
         }
         else 
         {
+            PlayerPrefs.SetInt("music", 1);
             soundToggle.DOAnchorPos(new Vector2(-40, 0), 0.2f);
+        }
+        SoundToggle(soundT, PlayerPrefs.GetInt("music", 1));
+    }
+
+    public void SoundToggle(GameObject button, int state)
+    {
+        if(state == 0)
+        {
+            soundT.GetComponent<Image>().sprite = toggleOff;
+            soundToggle.anchoredPosition = new Vector2(-120, 0);
+        }
+        else 
+        {
             soundT.GetComponent<Image>().sprite = toggleOn;
-            isOn = !isOn;
+            soundToggle.anchoredPosition = new Vector2(-40, 0);
+        }
+    }
+    public void VibrationSettings()
+    {
+        if(PlayerPrefs.GetInt("vibration", 1) == 1)
+        {
+            PlayerPrefs.SetInt("vibration", 0);
+            vibrationToggle.DOAnchorPos(new Vector2(-120, 0), 0.2f);
+        }
+        else 
+        {
+            PlayerPrefs.SetInt("vibration", 1);
+            soundToggle.DOAnchorPos(new Vector2(-40, 0), 0.2f);
+        }
+        VibrationToggle(soundT, PlayerPrefs.GetInt("vibration", 1));
+    }
+
+    public void VibrationToggle(GameObject button, int state)
+    {
+        if(state == 0)
+        {
+            vibrationT.GetComponent<Image>().sprite = toggleOff;
+            vibrationToggle.anchoredPosition = new Vector2(-120, 0);
+        }
+        else 
+        {
+            vibrationT.GetComponent<Image>().sprite = toggleOn;
+            vibrationToggle.anchoredPosition = new Vector2(-40, 0);
         }
     }
 
-     public void VibrationToggle()
-    {   
-        if(isOn)
-        {
-            vibrationToggle.DOAnchorPos(new Vector2(-120, 0), 0.2f);
-            vibrationT.GetComponent<Image>().sprite = toggleOff;
-            isOn = !isOn;
-        }
-        else 
-        {
-            vibrationToggle.DOAnchorPos(new Vector2(-40, 0), 0.2f);
-            vibrationT.GetComponent<Image>().sprite = toggleOn;
-            isOn = !isOn;
-        }
-    }
 }

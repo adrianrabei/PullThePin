@@ -10,7 +10,6 @@ public class SoundControll : Singleton<SoundControll>
     public AudioClip fail;
     public AudioClip explosion;
     private AudioSource aSource;
-    private bool canPlaySound;
     protected override void Awake()
     {
         base.Awake();
@@ -22,7 +21,7 @@ public class SoundControll : Singleton<SoundControll>
 
         if(PlayerPrefs.GetInt("music", 1) == 1)
         {
-            canPlaySound = true;
+            PlaySound(name);
         }
     }
 
@@ -30,8 +29,10 @@ public class SoundControll : Singleton<SoundControll>
     
     public void PlaySound(string name)
     {
-        if(canPlaySound)
-        {
+            if(PlayerPrefs.GetInt("music", 1) == 0)
+            {
+                return;
+            }
             if(name == "pop")
             {
                 aSource.PlayOneShot(pop);
@@ -52,6 +53,5 @@ public class SoundControll : Singleton<SoundControll>
             {
                 aSource.PlayOneShot(explosion);
             }
-        }
     }
 }

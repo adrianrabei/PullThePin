@@ -10,20 +10,25 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] protected GameObject game;
     [SerializeField] protected GameObject win;
     [SerializeField] protected GameObject fail;
-    [SerializeField] private Text level;
     private int sceneIndex;
     private bool alreadyPlayed;
     [SerializeField] private ParticleSystem winEffects;
+    public bool canFail;
     protected override void Awake()
     {
         base.Awake();
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if(PlayerPrefs.GetInt("level", 0) == sceneIndex)
+        {
+
+        }
+        else SceneManager.LoadScene(PlayerPrefs.GetInt("level", 0));
        
     }
     void Start()
     {
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        level.text = "Level " + (sceneIndex+1); 
         alreadyPlayed = false;
+        canFail = true; 
     }
     void Update() 
     {
@@ -65,6 +70,7 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(1f);
         win.SetActive(true);
         game.SetActive(false);
+        canFail = false;
 
         if(!alreadyPlayed)
         {
@@ -72,10 +78,33 @@ public class GameManager : Singleton<GameManager>
             winEffects.Play();
             alreadyPlayed = true;
         }
+        PlayerPrefs.SetInt("level", sceneIndex + 1);
     }
 
     public void NextScene()
     {
-        SceneManager.LoadScene(sceneIndex + 1);
+       
+        if(PlayerPrefs.GetInt("level", 1) <= 49)
+        {
+            SceneManager.LoadScene(sceneIndex + 1);
+        }
+        else
+        {
+            int nextLevel = Random.Range(0, 49);
+            SceneManager.LoadScene(nextLevel);
+        }
+
+       
     }
+
+    public void VibrationController()
+    {
+        if(PlayerPrefs.GetInt("vibration", 1) == 0)
+        {
+            return;
+        }
+        Handheld.Vibrate();
+    }
+
+    
 }

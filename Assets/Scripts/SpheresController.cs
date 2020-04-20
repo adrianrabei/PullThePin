@@ -18,7 +18,10 @@ public class SpheresController : MonoBehaviour
         if(isBlowing)
         {
             Invoke("Unfreez", 0.4f);
-            StartCoroutine(GameManager.Instance.Fail());
+            if(GameManager.Instance.canFail)
+            {
+                StartCoroutine(GameManager.Instance.Fail());
+            }
         }
     }
 
@@ -77,5 +80,6 @@ public class SpheresController : MonoBehaviour
         pipe.text.text = pipe.percentage + "%";
         pipe.result = true;
         SoundControll.Instance.PlaySound("pop");
+        GameManager.Instance.VibrationController();
     }
 }
