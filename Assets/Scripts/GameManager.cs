@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] protected GameObject game;
     [SerializeField] protected GameObject win;
     [SerializeField] protected GameObject fail;
+
     private int sceneIndex;
     private bool alreadyPlayed;
     [SerializeField] private ParticleSystem winEffects;
@@ -20,31 +21,38 @@ public class GameManager : Singleton<GameManager>
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         if(PlayerPrefs.GetInt("level", 0) == sceneIndex)
         {
-
+            
         }
-        else SceneManager.LoadScene(PlayerPrefs.GetInt("level", 0));
-       
+        else SceneManager.LoadScene(PlayerPrefs.GetInt("level", 0));       
     }
     void Start()
     {
         alreadyPlayed = false;
-        canFail = true; 
+        canFail = true;
+        if(DontDestroy.wasPlayed)
+        {
+            Play();
+        }
+        
     }
     void Update() 
     {
-       
+       Debug.Log(DontDestroy.wasPlayed);
     }
 
     public void Play()
     {
-
+        main.SetActive(false);
         game.SetActive(true);
         SoundControll.Instance.PlaySound("pop");
+        DontDestroy.wasPlayed = true;
+        
     }
 
     public void Pause()
     {
         game.SetActive(false);
+        main.SetActive(true);
     }
 
     public void Restart()

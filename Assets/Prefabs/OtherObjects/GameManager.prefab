@@ -47,5 +47,5 @@ MonoBehaviour:
   game: {fileID: 0}
   win: {fileID: 0}
   fail: {fileID: 0}
-  level: {fileID: 0}
   winEffects: {fileID: 0}
+  canFail: 0
